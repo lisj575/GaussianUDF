@@ -1,6 +1,6 @@
 
-<h1 align="center">GaussianUDF: Inferring Unsigned Distance Functions through 3D Gaussian Splatting (CVPR 2025 Highlight)</h1>
-
+<h1 align="center">GaussianUDF: Inferring Unsigned Distance Functions through 3D Gaussian Splatting</h1>
+<p align="center" style="font-size:25px;color:blue" > CVPR 2025 Highlight</p>
 <p align="center" style="font-size:16px" >
     <strong>Shujuan Li</strong></a>
     ·
@@ -9,6 +9,7 @@
     <a href="https://h312h.github.io/"><strong>Zhizhong Han</strong></a>
 </p>
 <p align="center" style="font-size:25px"><a href="https://arxiv.org/abs/2503.19458">Paper</a> | <a href="https://lisj575.github.io/GaussianUDF/">Project Page</a></p>
+
 <div align="center"></div>
 <div align="center"></div>
 <p align="center">
