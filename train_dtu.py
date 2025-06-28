@@ -89,21 +89,17 @@ def depth_norm_to_world(depth, normal, intrinsic, extrinsic, pts_num=-1):
 
     pixels_x = torch.randint(low=0, high=image_width, size=[pts_num_w], device=normal.device)
     pixels_y = torch.randint(low=0, high=image_height, size=[pts_num_h], device=normal.device)
-    sub_normal = normal.permute(1,2,0)[(pixels_y, pixels_x)]    # batch_size, 3
+    world_normal = normal.permute(1,2,0)[(pixels_y, pixels_x)]
     sub_depth = depth.permute(1,2,0)[(pixels_y, pixels_x)]
     pixel = torch.stack([pixels_x, pixels_y, torch.ones_like(pixels_y)], dim=-1) * sub_depth
-    sub_normal = sub_normal.transpose(0,1)
     pixel = pixel.transpose(0,1)
 
     inv_intrinsic = torch.inverse(intrinsic)
-    cam_normal = torch.matmul(inv_intrinsic.float(), sub_normal.float())
     cam_pts = torch.matmul(inv_intrinsic.float(), pixel.float())
     ones = torch.ones([1, pts_num], device=depth.device)
-    cam_normal_hom = torch.cat([cam_normal, ones], dim=0)
     cam_pts_hom = torch.cat([cam_pts, ones], dim=0)
     c2w = torch.inverse(extrinsic)
     world_pts = torch.matmul(c2w, cam_pts_hom).transpose(1,0)[:,:3]
-    world_normal = torch.matmul(c2w, cam_normal_hom).transpose(1,0)[:,:3]
     return world_pts, world_normal
 
 def compute_LNCC(ref_gray, src_grays):

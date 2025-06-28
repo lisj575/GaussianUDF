@@ -90,8 +90,6 @@ def clean_mesh(mesh, source_path, gs_output_path, dataset_name='real360'):
 def cull_scan(scan, mesh_path, result_mesh_file, thred=0):
     
     # load poses
-    #instance_dir = os.path.join('/home/lishujuan/0-Codes/reconstruction/gaussian-splatting/data/dtu', 'scan{0}'.format(scan))
-    #gs_path = '/home/lishujuan/0-Codes/reconstruction/gaussian-splatting/output/dtu_24/'
     instance_dir = os.path.join('../data/deepfashion_rendering_fov60', str(scan))
     gs_path = os.path.dirname(os.path.dirname(result_mesh_file))
     if not os.path.exists(os.path.join(gs_path, 'cameras.json')):
@@ -99,8 +97,7 @@ def cull_scan(scan, mesh_path, result_mesh_file, thred=0):
         if not os.path.exists(os.path.join(gs_path, 'cameras.json')):
             print("not exist!!!")
             exit()
-    #     gs_path = '/data/lisj/2dgs_recon/output/20240612-default_udf_sup-ok'
-
+    
     image_dir = '{0}/images'.format(instance_dir)
     image_paths = sorted(glob(os.path.join(image_dir, "*.png")))
     n_images = len(image_paths)
