@@ -115,14 +115,6 @@ def render(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch.Tensor, 
             "radii": radii,
     }
 
-    # mask = rasterizer.markVisible(means3D)
-    # visible_mask = radii>0
-    # import numpy as np
-    # np.savetxt("tmp_results/0828_origin_gs.xyz", means3D.detach().cpu().numpy())
-    # np.savetxt("tmp_results/0828_radii_pts.xyz", means3D[visible_mask].detach().cpu().numpy())
-    # print(visible_mask.shape)
-    # print((visible_mask == mask).all())
-
 
     # additional regularizations
     render_alpha = allmap[1:2]

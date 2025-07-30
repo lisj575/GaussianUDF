@@ -49,7 +49,7 @@ data
 │   │   ├── pairs.txt
 │   └── ...
 ```
-Pretrained meshes are provided in [This link](https://drive.google.com/drive/folders/1u0gox3ipzyKuHMxfTKnJkFdHsKRBuXCf?usp=drive_link).
+Pretrained meshes are provided in [This link](https://drive.google.com/drive/folders/1i4zL6HMXH1Y1gwkibMuSbir9kVQRBcGi?usp=drive_link).
 
 # Setup
 
